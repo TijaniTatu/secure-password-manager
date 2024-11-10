@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^10.8.2"
+  }
 }
