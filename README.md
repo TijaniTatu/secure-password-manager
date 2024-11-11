@@ -6,19 +6,6 @@ This library provides a secure, password-based key-value storage solution for ma
 ![MIT](https://img.shields.io/badge/License-MIT-green)
 ![Mocha](https://img.shields.io/badge/Mocha-5.2.0-8d8d8d)
 
-
-## Table of Contents 📚
-
-- [Introduction](#introduction)
-- [Key Features](#key-features)
-- [How It Works](#how-it-works)
-  - [Key Derivation](#key-derivation)
-  - [Data Encryption and Decryption](#data-encryption-and-decryption)
-  - [Data Dump and Load](#data-dump-and-load)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Testing](#testing)
-
 ## Introduction 💡
 
 The `Keychain` library securely stores credentials using a password-based encryption mechanism. It ensures that only users with the correct password can encrypt or decrypt the stored data. This approach is useful for applications requiring secure storage for sensitive data like login credentials, API keys, or other confidential information.
