@@ -87,9 +87,12 @@ const loadedKeychain = await Keychain.load('your-password', contents, checksum);
 ## Testing 🧪
 
 This project includes tests written with Mocha. To run the tests:
-
+If mocha is not installed:
 ```bash
-npm i mocha
+npm install -g mocha
 
+```
+To test:
+```bash
 mocha
 ```
