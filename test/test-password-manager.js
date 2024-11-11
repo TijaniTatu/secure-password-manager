@@ -134,7 +134,7 @@ describe('Password manager', async function() {
             for (let i = 0; i < 10; i++) {
                 await keychain.set(String(i), String(i));
             }
-            let data = await keychain.dump();
+            let data = await keychain.dump({ includeKVS: true });
             let contents = data[0];
             let contentsObj = JSON.parse(contents);
             expect(contentsObj).to.have.key('kvs');
