@@ -4,6 +4,8 @@ This library provides a secure, password-based key-value storage solution for ma
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![MIT](https://img.shields.io/badge/License-MIT-green)
+![Mocha](https://img.shields.io/badge/Mocha-5.2.0-8d8d8d)
+
 
 ## Table of Contents 📚
 
