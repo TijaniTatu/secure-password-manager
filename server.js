@@ -6,6 +6,10 @@ const { Keychain } = require('./password-manager'); // Import the Keychain class
 
 const app = express();
 const PORT = 3000;
+const cors = require('cors');
+app.use(cors()); // Enable CORS for all routes
+
+
 
 app.use(bodyParser.json());
 
