@@ -1,8 +1,11 @@
-# Secure Password Manager Library
+# Secure Password Manager Library 🔐
 
 This library provides a secure, password-based key-value storage solution for managing sensitive data like credentials. The `Keychain` class uses AES-GCM encryption to protect stored data, allowing for safe storage, retrieval, and serialization of encrypted information.
 
-## Table of Contents
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![MIT](https://img.shields.io/badge/License-MIT-green)
+
+## Table of Contents 📚
 
 - [Introduction](#introduction)
 - [Key Features](#key-features)
@@ -14,20 +17,20 @@ This library provides a secure, password-based key-value storage solution for ma
 - [Usage](#usage)
 - [Testing](#testing)
 
-## Introduction
+## Introduction 💡
 
 The `Keychain` library securely stores credentials using a password-based encryption mechanism. It ensures that only users with the correct password can encrypt or decrypt the stored data. This approach is useful for applications requiring secure storage for sensitive data like login credentials, API keys, or other confidential information.
 
-## Key Features
+## Key Features 🔑
 
 - AES-GCM encryption for secure data storage.
 - Password-based key derivation using PBKDF2 with adjustable iterations.
 - Support for serializing and deserializing encrypted data.
 - Data integrity validation with SHA-256 checksum.
 
-## How It Works
+## How It Works ⚙️
 
-### Key Derivation
+### Key Derivation 🔑
 
 To securely derive an encryption key from the user-provided password, the library uses PBKDF2 (Password-Based Key Derivation Function 2). This key derivation process includes:
 
@@ -37,7 +40,7 @@ To securely derive an encryption key from the user-provided password, the librar
 
 This process results in a master key that is used to encrypt and decrypt data within the keychain.
 
-### Data Encryption and Decryption
+### Data Encryption and Decryption 🔐
 
 The `Keychain` class encrypts and decrypts the key-value store (`kvs`) using AES-GCM, a modern encryption algorithm suitable for secure data storage. The encryption process includes:
 
@@ -47,7 +50,7 @@ The `Keychain` class encrypts and decrypts the key-value store (`kvs`) using AES
 
 These steps ensure that data remains secure and can only be accessed by users with the correct password.
 
-### Data Dump and Load
+### Data Dump and Load 🗃️
 
 To support backup and restoration, the library offers methods to export (`dump`) and import (`load`) encrypted key-value pairs. Each dump includes:
 
@@ -57,7 +60,7 @@ To support backup and restoration, the library offers methods to export (`dump`)
 
 Loading data requires the correct password to derive the master key, allowing for secure decryption of the key-value pairs.
 
-## Installation
+## Installation 🛠️
 
 To use this library, clone the repository and install the required dependencies:
 
@@ -65,9 +68,10 @@ To use this library, clone the repository and install the required dependencies:
 git clone https://github.com/Winstone-Were/secure-password-manager.git
 cd secure-password-manager
 npm install
+
 ```
 
-## Usage
+## Usage 🚀
 
 
 ```javascript
@@ -91,7 +95,7 @@ const loadedKeychain = await Keychain.load('your-password', contents, checksum);
 
 ```
 
-## Testing
+## Testing 🧪
 
 This project includes tests written with Mocha. To run the tests:
 
