@@ -96,3 +96,13 @@ To test:
 ```bash
 mocha
 ```
+
+## Running the Server🖥️
+To run the server, you need to have Node.js installed. Then, you can run the server.
+```bash
+node server.js
+```
+This will start the server on port 3000.
+
+## Website
+Then open the index.html on your browser
