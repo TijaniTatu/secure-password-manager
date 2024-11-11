@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Manager</h1>
+        <div id="keychain-section">
+            <h2>Create Keychain</h2>
+            <input type="password" id="create-password" placeholder="Enter password" />
+            <button id="create-keychain">Create Keychain</button>
+        </div>
+
+        <div id="load-keychain-section">
+            <h2>Load Keychain</h2>
+            <input type="password" id="load-password" placeholder="Enter password" />
+            <input type="text" id="contents" placeholder="Serialized contents" />
+            <input type="text" id="checksum" placeholder="Checksum" />
+            <button id="load-keychain">Load Keychain</button>
+        </div>
+
+        <div id="set-credential-section">
+            <h2>Set Credential</h2>
+            <input type="text" id="url" placeholder="URL" />
+            <input type="password" id="credential-password" placeholder="Password" />
+            <button id="set-credential">Set Credential</button>
+        </div>
+
+        <div id="get-credential-section">
+            <h2>Get Credential</h2>
+            <input type="text" id="get-url" placeholder="URL" />
+            <button id="get-credential">Get Credential</button>
+            <div id="credential-result"></div>
+        </div>
+
+        <div id="remove-credential-section">
+            <h2>Remove Credential</h2>
+            <input type="text" id="remove-url" placeholder="URL" />
+            <button id="remove-credential">Remove Credential</button>
+        </div>
+
+        <div id="dump-keychain-section">
+            <h2>Dump Keychain</h2>
+            <input type="checkbox" id="includeKVS" />
+            <label for="includeKVS">Include KVS</label>
+            <button id="dump-keychain">Dump Keychain</button>
+            <div id="dump-result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
