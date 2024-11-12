@@ -104,12 +104,12 @@ node server.js
 ```
 This will start the server on port 3000.
 
-## Website
+## Website🛜
 Then open the index.html on your browser
 
 
 
-## SHORT QUESTIONS ANSWERS 
+# <u> SHORT QUESTIONS ANSWERS </u>
 **1. Preventing the Adversary from Learning Password Lengths:**
 
 **Approach:**
