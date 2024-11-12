@@ -118,7 +118,7 @@ Then open the index.html on your browser
 
  To prevent the adversary from deducing information about password lengths, the implemented password manager pads each password to a fixed, maximum length before encryption (e.g., 64 characters). By ensuring that all encrypted entries appear to have the same length, this approach hides any length-related information about the passwords, making it impossible for an adversary to infer password lengths based on the ciphertext size.
 
-**Advantages:**
+<u>**Advantages:**</u>
 
 **Privacy Protection:** Prevents the adversary from inferring password characteristics based on length, which is valuable for privacy since short passwords may indicate simplicity.
 
@@ -141,15 +141,15 @@ Then open the index.html on your browser
 
 **Advantages:**
 
-**Tamper Detection:** The use of HMAC ensures that any modification to a domain-password pair is detectable since each entry is bound to its unique HMAC.
+<mark>**Tamper Detection:**</mark> The use of HMAC ensures that any modification to a domain-password pair is detectable since each entry is bound to its unique HMAC.
 
-**Strong Integrity Assurance:** The SHA-256 checksum provides an additional layer of defense by verifying the overall database’s integrity, detecting unauthorized changes beyond individual entries.
+<mark>**Strong Integrity Assurance:** </mark>The SHA-256 checksum provides an additional layer of defense by verifying the overall database’s integrity, detecting unauthorized changes beyond individual entries.
 
 **Disadvantages:**
 
-**Computation Overhead:** Calculating HMACs and the SHA-256 checksum involves additional computation, which could slow down performance for larger databases.
+<mark>**Computation Overhead:**</mark> Calculating HMACs and the SHA-256 checksum involves additional computation, which could slow down performance for larger databases.
 
-**Complexity in Verification:** If an entry fails verification, determining which part of the database has been tampered with may be challenging without additional mechanisms.
+<mark>**Complexity in Verification:**</mark> If an entry fails verification, determining which part of the database has been tampered with may be challenging without additional mechanisms.
 
 
 
