@@ -106,3 +106,14 @@ This will start the server on port 3000.
 
 ## Website
 Then open the index.html on your browser
+
+
+## SHORT QUESTIONS ANSWERS 
+**1. Preventing the Adversary from Learning Password Lengths:**
+ To prevent the adversary from deducing information about password lengths, the implemented password manager pads each password to a fixed, maximum length before encryption (e.g., 64 characters). By ensuring that all encrypted entries appear to have the same length, this approach hides any length-related information about the passwords, making it impossible for an adversary to infer password lengths based on the ciphertext size.
+
+**2. Preventing Swap Attacks:**
+ The implemented password manager prevents swap attacks by tying each domain-password pair to a unique HMAC value derived from the domain name. This approach ensures that any attempt to swap entries will result in a mismatch when the domain’s HMAC is verified against the stored data. Furthermore, a SHA-256 checksum of the entire database is computed during serialization. This checksum is verified upon loading, allowing the system to detect any tampering in case an adversary attempts to rearrange entries. With these defenses, the password manager effectively detects and prevents swap attacks.
+
+**3. Necessity of a Trusted Location for SHA-256 Hash to Defend Against Rollback Attacks:**
+While storing the SHA-256 hash in a trusted location beyond the adversary’s reach strengthens the system’s defense against rollback attacks, it is not absolutely necessary. Without a trusted storage location, we could implement an alternative mechanism such as version numbers or timestamps for each entry. By verifying these during each load operation, we could detect whether any rollback has occurred. However, storing the hash in a trusted location simplifies the verification process and provides a more straightforward, robust defense against rollback attacks.
