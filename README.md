@@ -108,21 +108,68 @@ This will start the server on port 3000.
 Then open the index.html on your browser
 
 
+
 ## SHORT QUESTIONS ANSWERS 
-## 1. Preventing the Adversary from Learning Password Lengths: 
+**1. Preventing the Adversary from Learning Password Lengths:**
+
+**Approach:**
+
  To prevent the adversary from deducing information about password lengths, the implemented password manager pads each password to a fixed, maximum length before encryption (e.g., 64 characters). By ensuring that all encrypted entries appear to have the same length, this approach hides any length-related information about the passwords, making it impossible for an adversary to infer password lengths based on the ciphertext size.
 
- ---
+**Advantages:**
 
-## 2. Preventing Swap Attacks:
+**Privacy Protection:** Prevents the adversary from inferring password characteristics based on length, which is valuable for privacy since short passwords may indicate simplicity.
+
+**Uniform Encryption Output:** Consistent ciphertext sizes enhance security as no entry reveals length-based metadata.
+
+**Disadvantages:**
+
+**Increased Storage Requirements:** Padding can lead to substantial increases in storage space, especially if the database contains many short passwords.
+
+**Additional Processing Overhead:** Adding padding introduces minor computational overhead during padding and encryption.
+
+
+
+
+**2. Preventing Swap Attacks:**
+
+**Approach:**
+
  The implemented password manager prevents swap attacks by tying each domain-password pair to a unique HMAC value derived from the domain name. This approach ensures that any attempt to swap entries will result in a mismatch when the domain’s HMAC is verified against the stored data. Furthermore, a SHA-256 checksum of the entire database is computed during serialization. This checksum is verified upon loading, allowing the system to detect any tampering in case an adversary attempts to rearrange entries. With these defenses, the password manager effectively detects and prevents swap attacks.
 
- ---
+**Advantages:**
 
-## 3. Necessity of a Trusted Location for SHA-256 Hash to Defend Against Rollback Attacks:
+**Tamper Detection:** The use of HMAC ensures that any modification to a domain-password pair is detectable since each entry is bound to its unique HMAC.
+
+**Strong Integrity Assurance:** The SHA-256 checksum provides an additional layer of defense by verifying the overall database’s integrity, detecting unauthorized changes beyond individual entries.
+
+**Disadvantages:**
+
+**Computation Overhead:** Calculating HMACs and the SHA-256 checksum involves additional computation, which could slow down performance for larger databases.
+
+**Complexity in Verification:** If an entry fails verification, determining which part of the database has been tampered with may be challenging without additional mechanisms.
+
+
+
+**3. Necessity of a Trusted Location for SHA-256 Hash to Defend Against Rollback Attacks:**
+
+**Approach:**
+
 While storing the SHA-256 hash in a trusted location beyond the adversary’s reach strengthens the system’s defense against rollback attacks, it is not absolutely necessary. Without a trusted storage location, we could implement an alternative mechanism such as version numbers or timestamps for each entry. By verifying these during each load operation, we could detect whether any rollback has occurred. However, storing the hash in a trusted location simplifies the verification process and provides a more straightforward, robust defense against rollback attacks.
 
----
+**Advantages:**
+
+**Strong Rollback Protection:** A trusted SHA-256 hash or versioning enables robust protection against rollback attacks, ensuring that data cannot be reverted to a previous state undetected.
+
+**Ease of Integrity Check:** With a trusted storage location, verifying integrity becomes straightforward, enhancing reliability.
+
+**Disadvantages:**
+
+**Dependency on Trusted Storage:** The security model is weakened without a secure, trusted storage location, making the system vulnerable to rollbacks if this alternative is not available.
+
+**Versioning Complexity:** If a trusted storage is unavailable, managing version numbers or timestamps adds complexity to the system and requires meticulous handling to avoid sync issues.
+
+
 
 ## 4. Randomized MACs and Domain Name Lookups:
 
