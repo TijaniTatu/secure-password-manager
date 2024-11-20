@@ -12,6 +12,7 @@ app.use(cors()); // Enable CORS for all routes
 
 
 app.use(bodyParser.json());
+app.use(express.static('./'))
 
 let keychainInstance = null; // To hold the current keychain instance
 

@@ -1,7 +1,12 @@
 const API_URL = 'http://localhost:3000/keychain';
 
+let keychain_object;
+let keychain_cheksum;
+let keychain_password;
+
 document.getElementById('create-keychain').addEventListener('click', async () => {
     const password = document.getElementById('create-password').value;
+    keychain_password = password;
     const response = await fetch(`${API_URL}/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -13,12 +18,16 @@ document.getElementById('create-keychain').addEventListener('click', async () =>
 
 document.getElementById('load-keychain').addEventListener('click', async () => {
     const password = document.getElementById('load-password').value;
-    const contents = document.getElementById('contents').value;
+    let contents = document.getElementById('contents').value;
+    console.log(contents);
+    //contents = JSON.parse(contents);
     const checksum = document.getElementById('checksum').value;
+    let final_object = {password, contents, checksum}
+    console.log(contents);
     const response = await fetch(`${API_URL}/load`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password, contents, checksum })
+        body: JSON.stringify({ password, contents, checksum})
     });
     const data = await response.json();
     alert(data.message || data.error);
@@ -72,6 +81,8 @@ document.getElementById('dump-keychain').addEventListener('click', async () => {
     const data = await response.json();
     if (data.contents) {
         document.getElementById('dump-result').innerText = `Contents: ${data.contents}\nChecksum: ${data.checksum}`;
+        keychain_object = data.contents
+        keychain_cheksum = data.checksum
     } else {
         alert(data.error);
         document.getElementById('dump-result').innerText = '';
