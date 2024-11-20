@@ -190,7 +190,7 @@ The need to store each unique tag in a database introduces a significant storage
 
 ## 5. Reducing Information Leaked About the Number of Records:
 
-To reduce the information leaked about the number of records in the password manager, we can use a **hash-based partitioning scheme with padding**.
+To reduce the information leaked about the number of records in the password manager, we can use a <mark>**hash-based partitioning scheme with padding**</mark>.
 
 ### 🔑Approach:
 - **Hash-Based Partitioning**: Divide the records into multiple logical partitions and use a consistent hash function to assign each record to a partition based on the record identifier. Each partition holds up to a set maximum number of records, e.g., 8 records per partition.
@@ -227,7 +227,7 @@ Thus, if an attacker observes the bucketed response (either for 8 or 15 records)
 
  ## 6. Multi-User Support Without Compromising Security: 
 
-To add multi-user support for specific sites in a password manager system without compromising security for other sites, we can use **Attribute-Based Encryption (ABE)** with fine-grained access control.
+To add multi-user support for specific sites in a password manager system without compromising security for other sites, we can use <mark>**Attribute-Based Encryption (ABE)**</mark> with fine-grained access control.
 
 ### 🔑Approach: 
 In this approach, each user is assigned unique cryptographic attributes (such as "nytimes-access") to control access to specific passwords. When a password is stored, it is encrypted using <mark>**Attribute-Based Encryption (ABE)**</mark> with conditions tied to these attributes, ensuring only users with the appropriate attribute (e.g., "nytimes-access") can decrypt it. Users can access shared passwords if they possess the correct attribute, while other passwords remain protected by different attributes.
