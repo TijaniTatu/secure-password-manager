@@ -230,7 +230,7 @@ Thus, if an attacker observes the bucketed response (either for 8 or 15 records)
 To add multi-user support for specific sites in a password manager system without compromising security for other sites, we can use **Attribute-Based Encryption (ABE)** with fine-grained access control.
 
 ### 🔑Approach: 
-In this approach, each user is assigned unique cryptographic attributes (such as "nytimes-access") to control access to specific passwords. When a password is stored, it is encrypted using **Attribute-Based Encryption (ABE)** with conditions tied to these attributes, ensuring only users with the appropriate attribute (e.g., "nytimes-access") can decrypt it. Users can access shared passwords if they possess the correct attribute, while other passwords remain protected by different attributes.
+In this approach, each user is assigned unique cryptographic attributes (such as "nytimes-access") to control access to specific passwords. When a password is stored, it is encrypted using <mark>**Attribute-Based Encryption (ABE)**</mark> with conditions tied to these attributes, ensuring only users with the appropriate attribute (e.g., "nytimes-access") can decrypt it. Users can access shared passwords if they possess the correct attribute, while other passwords remain protected by different attributes.
 
 If access needs to be revoked, the attribute can be removed from a user's profile, and the password can be re-encrypted with a new access condition. This allows dynamic access control without the need to re-encrypt all passwords.
 
